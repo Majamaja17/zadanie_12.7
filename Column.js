@@ -12,7 +12,7 @@ function Column(id, name) {
 		var columnDelete = $('<button class="btn-delete">x</button>');
 		var columnAddCard = $('<button class="column-add-card">Dodaj kartę</button>');
 		
-		columnDelete.click(function() {
+		columnDelete.on("click", function() {
 			self.deleteColumn();
 		});
 		
@@ -26,7 +26,7 @@ function Column(id, name) {
 			    data: {
 			    name: cardName,
 			    bootcamp_kanban_column_id: self.id
-			    },
+			},
 			    success: function(response) {
 			        var card = new Card(response.id, cardName);
 			        self.createCard(card);
